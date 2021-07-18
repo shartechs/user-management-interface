@@ -2,15 +2,35 @@ import React, {useState} from "react";
 import './App.scss'
 import Header from './components/Header';
 import Table from './components/Table';
+import { v4 as uuidv4 } from 'uuid';
+
+export const UserContext = React.createContext()
 
 function App() {
   const [users, setUsers] = useState(sampleUsers)
 
+
+
+  //Toggle Status
+  const toggleStatus = (id) => {
+    setUsers(
+      users.map((user) => 
+      user.id === id ? {...user, status: !user.status} : user
+
+      )
+      )
+}
+
+  //useContext Values
+  const userContextValue = {
+    toggleStatus
+  }
+
   return (
-    <div>
+    <UserContext.Provider value={userContextValue}>
       <Header />
-      <Table users={users} />
-    </div>
+      <Table users={users} onToggle={toggleStatus}/>
+    </UserContext.Provider>
       
   );
 }
@@ -21,21 +41,21 @@ const sampleUsers = [
     name: 'Danniel Blichman',
     mail: 'danniel.blichman@testtask.com',
     role: 'admin',
-    status: "true",
+    status: true,
   },
   {
     id: 2,
     name: 'Margarette Jones',
     mail: 'margarette.jones@testtask.com',
     role: 'User',
-    status: "true",
+    status: false,
   },
   {
     id: 3,
     name: 'Bethany Doe',
     mail: 'bethany.doe@testtask.com',
     role: 'admin',
-    status: "false",
+    status: false,
   }
 ] 
 
