@@ -1,12 +1,12 @@
 .user--status {
-    border: none;
-    background-color: white;
-    content: " ";
-    background-image: url("/assets/true.svg");
-    background-size: 28px 28px;
-    background-repeat: no-repeat;
-    height: 28px;
-    width: 28px;
+  border: none;
+  background-color: white;
+  content: " ";
+  background-image: url("/assets/true.svg");
+  background-size: 28px 28px;
+  background-repeat: no-repeat;
+  height: 28px;
+  width: 28px;
 }
 
 .true {
@@ -15,4 +15,43 @@
 
 .false {
   background-image: url("/assets/false.svg");
+}
+
+.user--btn-danger {
+  background-color: white;
+  border: none;
+
+  margin-left: 15px;
+
+  &:hover {
+    img {
+      fill: red;
+    }
+  }
+}
+
+.user--name-block {
+  display: flex;
+  font-weight: bold;
+  position: relative;
+
+  p {
+    margin-bottom: -3px;
+  }
+
+  .lastname {
+    margin-left: 5px;
+  }
+
+  &::before {
+    background-color: white;
+    position: absolute;
+    content: " ";
+    background-image: url("/assets/profile-icon.svg");
+    background-size: 38px 38px;
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 38px;
+    left: -80px;
+  }
 }

@@ -1,15 +1,24 @@
 import React, {useState} from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss'
 import Header from './components/Header';
 import Table from './components/Table';
 import { v4 as uuidv4 } from 'uuid';
+import UserSettings from "./components/UserSettings";
 
 export const UserContext = React.createContext()
 
 function App() {
+  // Users State
   const [users, setUsers] = useState(sampleUsers)
-  const [searchValue, setSearchValue] = useState("")
 
+  // Search filter input state
+  const [searchValue, setSearchValue] = useState("")
+  
+  // For UserAdd Modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   //Toggle Status
   const toggleStatus = (id) => {
@@ -19,6 +28,13 @@ function App() {
 
       )
       )
+}
+
+// Add User
+const addUser = (user) => {
+  const id = uuidv4()
+  const newUser = {id, ...user}
+  setUsers([...users, newUser])
 }
 
 //Delete User
@@ -36,14 +52,31 @@ const deleteUser = (id) => {
     deleteUser,
     searchValue,
     setSearchValue,
-    users
+    users,
+    show,
+    handleClose,
+    handleShow,
+    addUser
   }
 
   return (
+    <Router>
     <UserContext.Provider value={userContextValue}>
       <Header />
-      <Table users={users} onToggle={toggleStatus}/>
+      <div className="main-content">
+        <Switch>
+          <Route exact path="/">
+            <Table users={users} onToggle={toggleStatus}/>
+          </Route>
+          <Route path="/user-settings">
+            <UserSettings/>
+          </Route>
+        </Switch>
+      </div>
+
     </UserContext.Provider>
+    </Router>
+
       
   );
 }
@@ -52,21 +85,24 @@ const deleteUser = (id) => {
 const sampleUsers = [
   {
     "id": 1,
-    "name": 'Danniel Blichman',
+    "name": 'Danniel',
+    "lastname": 'Blichman',
     "mail": 'danniel.blichman@testtask.com',
     "role": 'admin',
     "status": true
   },
   {
     "id": 2,
-    "name": 'Margarette Jones',
+    "name": 'Margarette',
+    "lastname": ' Jones',
     "mail": 'margarette.jones@testtask.com',
     "role": 'User',
     "status": false
   },
   {
     "id": 3,
-    "name": 'Bethany Doe',
+    "name": 'Bethany',
+    "lastname": 'Doe',
     "mail": 'bethany.doe@testtask.com',
     "role": 'admin',
     "status": false

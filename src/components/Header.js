@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../App'
+import AddUser from './AddUser';
 
 export default function Header() {
-    const {searchValue, setSearchValue} = useContext(UserContext)
+    const {searchValue, setSearchValue, handleShow} = useContext(UserContext)
 
     return (
         <div className="header--container">
@@ -20,6 +21,8 @@ export default function Header() {
                          />
                     </div>
                 </div>
+                <button className="btn btn-primary header--btn-add-user" onClick={handleShow}>+</button>
+                <AddUser />
             </div>
             
         </div>

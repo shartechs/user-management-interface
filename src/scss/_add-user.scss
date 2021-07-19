@@ -1,0 +1,21 @@
+.modal-header {
+  justify-content: flex-end;
+  border: none;
+
+  .close {
+    border: none;
+    background-color: white;
+  }
+
+  .sr-only {
+    display: none;
+  }
+}
+
+.add-user--btn-submit {
+  background-color: #44a0d3;
+  border: none;
+  border-radius: 50px;
+  width: 142px;
+  height: 41px;
+}

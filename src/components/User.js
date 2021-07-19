@@ -8,7 +8,11 @@ export default function User({user}) {
     return (
         <tr>
         <td>
-        <p>{user.name}</p>
+            <div className="user--name-block">
+            <p>{user.name}</p>
+            <p className="lastname">{user.lastname}</p>
+            </div>
+
             <span>{user.mail}</span>
         </td>
         <td>{user.role}</td>
@@ -20,11 +24,11 @@ export default function User({user}) {
             </button>
         </td>
         <td>
-            <button className='btn btn-primary'>1</button>
+            <button className='btn btn-primary user--btn-settings'>1</button>
             <button 
-            className='btn btn-danger'
+            className='btn user--btn-danger'
             onClick={() => deleteUser(user.id)}>
-                2
+                <img src="../assets/delete-icon.svg" alt="delete-icon" />
             </button>
         </td>
       </tr>

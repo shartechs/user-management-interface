@@ -1,14 +1,23 @@
 .header--container {
-  display: flex;
-  align-items: center;
   background: white;
-  min-height: 211px;
+  height: 211px;
   box-shadow: 0px 3px 6px #00000029;
 
-  .col-12 {
+  .container {
+    height: 100%;
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    height: 48px;
+    align-items: center;
+
+    .row {
+      width: 100%;
+    }
+
+    .col-12 {
+      display: flex;
+      justify-content: space-between;
+      height: 48px;
+    }
   }
 
   input {
@@ -17,16 +26,16 @@
     border-bottom: 2px solid #707070;
 
     &:after {
-        display: block;
-        position: absolute;
-        right: 0;
-        content: ' ';
-        background-image: url('/assets/search.svg');
-        background-size: 28px 28px;
-        background-repeat: no-repeat;
-        height: 28px;
-        width: 28px;
-        z-index: 1000;
+      display: block;
+      position: absolute;
+      right: 0;
+      content: " ";
+      background-image: url("/assets/search.svg");
+      background-size: 28px 28px;
+      background-repeat: no-repeat;
+      height: 28px;
+      width: 28px;
+      z-index: 1000;
     }
 
     &:focus-visible {
@@ -34,4 +43,14 @@
       border-bottom: 2px solid #707070;
     }
   }
+}
+
+.header--btn-add-user {
+  position: absolute;
+  border-radius: 200px;
+  background-color: #305eca;
+  bottom: -36px;
+  left: -80px;
+  height: 72px;
+  width: 72px;
 }
