@@ -1,0 +1,20 @@
+th {
+    span {
+        text-transform: uppercase;
+        position: relative;
+
+        &::after {
+          position: absolute;
+          top: 4px;
+          right: -30px;
+          background-color: white;
+          content: " ";
+          background-image: url("/assets/polygon.svg");
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          height: 13px;
+          width: 13px;
+        }
+    }
+
+}

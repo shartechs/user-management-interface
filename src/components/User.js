@@ -3,10 +3,11 @@ import { UserContext } from '../App'
 
 export default function User({user}) {
     const {toggleStatus} = useContext(UserContext)
+    const {deleteUser} = useContext(UserContext)
 
     return (
         <tr>
-        <td scope="row">
+        <td>
         <p>{user.name}</p>
             <span>{user.mail}</span>
         </td>
@@ -20,7 +21,11 @@ export default function User({user}) {
         </td>
         <td>
             <button className='btn btn-primary'>1</button>
-            <button className='btn btn-danger'>2</button>
+            <button 
+            className='btn btn-danger'
+            onClick={() => deleteUser(user.id)}>
+                2
+            </button>
         </td>
       </tr>
 

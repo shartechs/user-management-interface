@@ -8,7 +8,7 @@ export const UserContext = React.createContext()
 
 function App() {
   const [users, setUsers] = useState(sampleUsers)
-
+  const [searchValue, setSearchValue] = useState()
 
 
   //Toggle Status
@@ -21,9 +21,22 @@ function App() {
       )
 }
 
+//Delete User
+const deleteUser = (id) => {
+  setUsers(
+    users.filter((user) => 
+    user.id !== id 
+    )
+  )
+}
+
   //useContext Values
   const userContextValue = {
-    toggleStatus
+    toggleStatus,
+    deleteUser,
+    searchValue,
+    setSearchValue,
+    users
   }
 
   return (
@@ -35,27 +48,28 @@ function App() {
   );
 }
 
+//Creating JSON data
 const sampleUsers = [
   {
-    id: 1,
-    name: 'Danniel Blichman',
-    mail: 'danniel.blichman@testtask.com',
-    role: 'admin',
-    status: true,
+    "id": 1,
+    "name": 'Danniel Blichman',
+    "mail": 'danniel.blichman@testtask.com',
+    "role": 'admin',
+    "status": true
   },
   {
-    id: 2,
-    name: 'Margarette Jones',
-    mail: 'margarette.jones@testtask.com',
-    role: 'User',
-    status: false,
+    "id": 2,
+    "name": 'Margarette Jones',
+    "mail": 'margarette.jones@testtask.com',
+    "role": 'User',
+    "status": false
   },
   {
-    id: 3,
-    name: 'Bethany Doe',
-    mail: 'bethany.doe@testtask.com',
-    role: 'admin',
-    status: false,
+    "id": 3,
+    "name": 'Bethany Doe',
+    "mail": 'bethany.doe@testtask.com',
+    "role": 'admin',
+    "status": false
   }
 ] 
 
