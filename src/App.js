@@ -35,7 +35,8 @@ function App() {
 // Add User
 const addNewUser = (user) => {
   const id = uuidv4()
-  const newUser = {id, ...user}
+  let status = false
+  const newUser = {id, ...user, status}
   setUsers([...users, newUser])
 }
 

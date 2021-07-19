@@ -46,3 +46,28 @@ form {
   width: 142px;
   height: 41px;
 }
+
+.name {
+  margin-right: 10px;
+
+  &:before {
+    display: block;
+    position: absolute;
+    right: 0;
+    content: url(/assets/face-icon.svg);
+    height: 28px;
+    width: 28px;
+    z-index: 1000;
+  }
+}
+.last-name {
+  margin-left: 10px;
+}
+
+.email {
+  width: 100%;
+}
+
+.role {
+  width: 60%;
+}

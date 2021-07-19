@@ -9,12 +9,16 @@ export default function AddUser() {
         const [lastname, setLastname] = useState('')
         const [mail, setMail] = useState('')
         const [role, setRole] = useState('')
-        const [status, setStatus] = useState(false)
         
         const onSubmit = (e) => {
             e.preventDefault()
 
-            addNewUser({name, lastname, mail, role, status})
+            if(role!="Admin" && role!="User") {
+                alert('Please choose a user role')
+                return
+            }
+
+            addNewUser({name, lastname, mail, role})
         
             setName('')
             setLastname('')
@@ -37,6 +41,7 @@ export default function AddUser() {
             <div className="form-control">
                 <input
                     type="text" 
+                    className="name"
                     placeholder="* First Name"
                     required
                     value={name}
@@ -44,6 +49,7 @@ export default function AddUser() {
                 />
                 <input
                     type="text" 
+                    className="last-name"
                     placeholder="* Last Name"
                     required 
                     value={lastname}
@@ -53,6 +59,7 @@ export default function AddUser() {
             <div className="form-control">
                 <input
                     type="email" 
+                    className="email"
                     placeholder="* Email"
                     required
                     value={mail}
@@ -61,10 +68,11 @@ export default function AddUser() {
             </div>
             <div className="form-control">
                 <select
+                    className="role"
                     value={role}
                     required
                     onChange={(e) => setRole(e.target.value)}>
-                    <option value="* Role" selected>* Role</option>
+                    <option value="* Role" defaultValue>* Role</option>
                     <option value="Admin">Admin</option>
                     <option value="User">User</option>
                 </select>
