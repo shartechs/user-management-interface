@@ -4,30 +4,24 @@ import { Modal } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 
 export default function AddUser() {
-    const {show, handleClose, AddUser} = useContext(UserContext)
+    const {show, handleClose, addNewUser} = useContext(UserContext)
         const [name, setName] = useState('')
         const [lastname, setLastname] = useState('')
         const [mail, setMail] = useState('')
-        const [role, setRole] = useState('User')
+        const [role, setRole] = useState('')
         const [status, setStatus] = useState(false)
         
         const onSubmit = (e) => {
             e.preventDefault()
-        
 
-            if(!name || !lastname) {
-                alert('Please add name and last name')
-                return
-            }
-        
-            AddUser({name, lastname, mail, role, status})
+            addNewUser({name, lastname, mail, role, status})
         
             setName('')
             setLastname('')
             setMail('')
-            setRole('User')
+            setRole('')
 
-            // handleClose()
+            handleClose()
         }
 
     return (
@@ -38,6 +32,7 @@ export default function AddUser() {
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
+            <h1>Invite New User</h1>
             <form onSubmit={onSubmit}>
             <div className="form-control">
                 <input
@@ -58,7 +53,7 @@ export default function AddUser() {
             <div className="form-control">
                 <input
                     type="email" 
-                    placeholder="* Last Name"
+                    placeholder="* Email"
                     required
                     value={mail}
                     onChange={(e) => setMail(e.target.value)}
@@ -69,17 +64,21 @@ export default function AddUser() {
                     value={role}
                     required
                     onChange={(e) => setRole(e.target.value)}>
+                    <option value="* Role" selected>* Role</option>
                     <option value="Admin">Admin</option>
                     <option value="User">User</option>
                 </select>
+            </div>
+            <div className="form-control">
+                <Button type="submit" className="add-user--btn-submit">
+                    Send Invitation
+                </Button>
             </div>
 
             </form>
 
 
-            <Button type="submit" className="add-user--btn-submit">
-                Send Invitation
-            </Button>
+
         
         </Modal.Body>
 

@@ -25,7 +25,8 @@ export default function Table() {
                     return user;
                   } else if(
                     user.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-                    user.mail.toLowerCase().includes(searchValue.toLowerCase())
+                    user.mail.toLowerCase().includes(searchValue.toLowerCase()) ||
+                    user.role.toLowerCase().includes(searchValue.toLowerCase())
                   ) {
                     return user
                   }

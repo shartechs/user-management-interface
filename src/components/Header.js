@@ -1,27 +1,18 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../App'
+import React from 'react'
 import AddUser from './AddUser';
 
-export default function Header() {
-    const {searchValue, setSearchValue, handleShow} = useContext(UserContext)
+export default function Header({title, button, searchBox}) {
 
     return (
         <div className="header--container">
             <div className="container">
                 <div className="row header--heading">
                     <div className="col-12">
-                        <h1>Project Access</h1>
-                        <input
-                         type="search" 
-                         placeholder="Type to filter the table" 
-                         value={searchValue}
-                         onChange={(e) => {
-                             setSearchValue(e.target.value)
-                         }}
-                         />
+                        <h1>{title}</h1>
+                        {searchBox}
                     </div>
                 </div>
-                <button className="btn btn-primary header--btn-add-user" onClick={handleShow}>+</button>
+                {button}
                 <AddUser />
             </div>
             

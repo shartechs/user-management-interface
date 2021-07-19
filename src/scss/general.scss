@@ -31,3 +31,7 @@ button:active {
   outline: none;
   box-shadow: none;
 }
+
+button:hover {
+  background-color: inherit;
+}

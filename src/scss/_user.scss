@@ -23,8 +23,27 @@
 
   margin-left: 15px;
 
+  svg {
+    fill: gray;
+  }
+
   &:hover {
-    img {
+    svg {
+      fill: red;
+    }
+  }
+}
+
+.user--btn-settings {
+  background-color: white;
+  border: none;
+
+  svg {
+    fill: green;
+  }
+
+  &:hover {
+    svg {
       fill: red;
     }
   }

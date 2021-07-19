@@ -4,7 +4,9 @@ import './App.scss'
 import Header from './components/Header';
 import Table from './components/Table';
 import { v4 as uuidv4 } from 'uuid';
-import UserSettings from "./components/UserSettings";
+import UserSetup from "./components/UserSetup";
+import AddUserBtn from './components/AddUserBtn';
+import UserSearch from './components/UserSearch';
 
 export const UserContext = React.createContext()
 
@@ -31,7 +33,7 @@ function App() {
 }
 
 // Add User
-const addUser = (user) => {
+const addNewUser = (user) => {
   const id = uuidv4()
   const newUser = {id, ...user}
   setUsers([...users, newUser])
@@ -56,20 +58,26 @@ const deleteUser = (id) => {
     show,
     handleClose,
     handleShow,
-    addUser
+    addNewUser
   }
 
   return (
     <Router>
     <UserContext.Provider value={userContextValue}>
-      <Header />
+
       <div className="main-content">
         <Switch>
           <Route exact path="/">
-            <Table users={users} onToggle={toggleStatus}/>
+            <Header 
+            title="Project Access" 
+            button={<AddUserBtn/>}
+            searchBox={<UserSearch/>}
+            />
+            <Table/>
           </Route>
-          <Route path="/user-settings">
-            <UserSettings/>
+          <Route path="/user-setup">
+            <Header title="User Setup"/>
+            <UserSetup/>
           </Route>
         </Switch>
       </div>
