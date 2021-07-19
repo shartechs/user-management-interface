@@ -8,7 +8,7 @@ export const UserContext = React.createContext()
 
 function App() {
   const [users, setUsers] = useState(sampleUsers)
-  const [searchValue, setSearchValue] = useState()
+  const [searchValue, setSearchValue] = useState("")
 
 
   //Toggle Status

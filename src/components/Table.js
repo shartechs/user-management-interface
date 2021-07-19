@@ -4,15 +4,6 @@ import User from './User'
 
 export default function Table() {
   const {searchValue, users} = useContext(UserContext)
-
-  // const filteredArray = users.filter((user) => {
-  //   if (searchValue === "") {
-  //     return user;
-  //   } else if (user.mail.toLowerCase().includes(searchValue.toLowerCase())) {
-  //     return user.mail.includes(searchValue.toLowerCase());
-  //   }
-  // });
-
     return (
         <div className="container">
             <table className="table">
@@ -31,6 +22,7 @@ export default function Table() {
       if (searchValue === "") {
         return user;
       } else if(
+        user.name.toLowerCase().includes(searchValue.toLowerCase()) ||
         user.mail.toLowerCase().includes(searchValue.toLowerCase())
       ) {
         return user

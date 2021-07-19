@@ -2,8 +2,7 @@ import React, { useContext } from 'react'
 import { UserContext } from '../App'
 
 export default function Header() {
-    const {searchValue} = useContext(UserContext)
-    const {setSearchValue} = useContext(UserContext)
+    const {searchValue, setSearchValue} = useContext(UserContext)
 
     return (
         <div className="header--container">
