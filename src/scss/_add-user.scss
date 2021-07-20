@@ -45,6 +45,11 @@ form {
   border-radius: 50px;
   width: 142px;
   height: 41px;
+
+  &:hover {
+    background-color: #44a0d3;
+    outline: none;
+  }
 }
 
 .name {

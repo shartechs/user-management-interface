@@ -40,4 +40,9 @@
   left: -80px;
   height: 72px;
   width: 72px;
+
+  &:hover {
+    background-color: #305eca;
+    outline: none;
+  }
 }

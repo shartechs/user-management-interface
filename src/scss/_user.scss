@@ -39,12 +39,13 @@
   border: none;
 
   svg {
-    fill: green;
+    padding-top: 4px;
+    fill: gray;
   }
 
   &:hover {
     svg {
-      fill: red;
+      fill: #44a0d3;
     }
   }
 }
