@@ -13,7 +13,7 @@ export default function AddUser() {
         const onSubmit = (e) => {
             e.preventDefault()
 
-            if(role!="Admin" && role!="User") {
+            if(role!=="Admin" && role!=="User") {
                 alert('Please choose a user role')
                 return
             }
