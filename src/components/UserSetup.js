@@ -121,7 +121,7 @@ export default function UserSetup() {
                         <span>Permission 2</span>
                         <button 
                         className={`user--status ${permission2 ? 'true' : 'false'}`}
-                        onClick={() => permission2 = !permission2}>
+                        onClick={() => state.users.permission2 = !state.users.permission2}>
                             {state.users.permission2}
                         </button>
                     </div>
