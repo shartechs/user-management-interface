@@ -4,6 +4,17 @@ import User from './User'
 
 export default function Table() {
   const {searchValue, users} = useContext(UserContext)
+
+  //Filter users according to the search field input
+  const filteredUsers = users.filter(user => {
+
+      return (
+      user.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      user.mail.toLowerCase().includes(searchValue.toLowerCase()) ||
+      user.role.toLowerCase().includes(searchValue.toLowerCase())
+    ) 
+  })
+
     return (
         <div className="container">
           <div className="row">
@@ -20,17 +31,7 @@ export default function Table() {
               <tbody>
 
                 {  
-                users.filter(user => {
-                  if (searchValue === "") {
-                    return user;
-                  } else if(
-                    user.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-                    user.mail.toLowerCase().includes(searchValue.toLowerCase()) ||
-                    user.role.toLowerCase().includes(searchValue.toLowerCase())
-                  ) {
-                    return user
-                  }
-                }).map(user => {
+                  filteredUsers.map(user => {
                   return (
                       <User 
                       key={user.id} 

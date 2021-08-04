@@ -72,7 +72,7 @@ export default function AddUser() {
                     value={role}
                     required
                     onChange={(e) => setRole(e.target.value)}>
-                    <option value="* Role" defaultValue>* Role</option>
+                    <option value="* Role" defaultValue hidden>* Role</option>
                     <option value="Admin">Admin</option>
                     <option value="User">User</option>
                 </select>
