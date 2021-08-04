@@ -1,0 +1,59 @@
+.user-setup {
+  .user-setup--info-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    p {
+      font-size: 48px;
+      font-weight: bold;
+
+      &:nth-child(1) {
+        margin-bottom: -10px;
+      }
+    }
+  }
+
+  .user-setup--status-box {
+    justify-content: space-between;
+    flex-direction: row !important;
+    width: 40% !important;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .row {
+    margin-top: 60px;
+  }
+
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px;
+    padding-right: 50px;
+
+    label {
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: #33a3dc;
+    }
+  }
+
+  .user-setup--permissions {
+    hr {
+      margin-bottom: 50px;
+    }
+
+    .user-setup--permision-box {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}

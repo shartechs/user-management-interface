@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import UserSetup from "./components/UserSetup";
 import AddUserBtn from './components/AddUserBtn';
 import UserSearch from './components/UserSearch';
+import HomeBtn from './components/HomeBtn';
 
 export const UserContext = React.createContext()
 
@@ -49,6 +50,18 @@ const deleteUser = (id) => {
   )
 }
 
+//Save changes to user
+const changeUser = (user, id) => {
+
+  const updatedUser = {id, ...user}
+  setUsers(
+    users.map((user) => 
+    user.id === id ? {updatedUser} : user
+
+    )
+  )
+}
+
   //useContext Values
   const userContextValue = {
     toggleStatus,
@@ -59,7 +72,8 @@ const deleteUser = (id) => {
     show,
     handleClose,
     handleShow,
-    addNewUser
+    addNewUser,
+    changeUser,
   }
 
   return (
@@ -67,6 +81,7 @@ const deleteUser = (id) => {
     <UserContext.Provider value={userContextValue}>
 
       <div className="main-content">
+        <Router>
         <Switch>
           <Route exact path="/">
             <Header 
@@ -77,10 +92,14 @@ const deleteUser = (id) => {
             <Table/>
           </Route>
           <Route path="/user-setup/:id">
-            <Header title="User Setup"/>
+            <Header title="User Setup"
+            button={<HomeBtn/>}
+            />
             <UserSetup/>
           </Route>
         </Switch>
+        </Router>
+
       </div>
 
     </UserContext.Provider>
@@ -98,7 +117,9 @@ const sampleUsers = [
     "lastname": 'Blichman',
     "mail": 'danniel.blichman@testtask.com',
     "role": 'admin',
-    "status": true
+    "status": true,
+    "permission1": false,
+    "permission2": false
   },
   {
     "id": 2,
@@ -106,7 +127,9 @@ const sampleUsers = [
     "lastname": ' Jones',
     "mail": 'margarette.jones@testtask.com',
     "role": 'User',
-    "status": false
+    "status": false,
+    "permission1": false,
+    "permission2": false
   },
   {
     "id": 3,
@@ -114,7 +137,9 @@ const sampleUsers = [
     "lastname": 'Doe',
     "mail": 'bethany.doe@testtask.com',
     "role": 'admin',
-    "status": false
+    "status": false,
+    "permission1": false,
+    "permission2": false
   }
 ] 
 
