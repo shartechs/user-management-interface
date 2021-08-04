@@ -14,9 +14,21 @@ export default function UserSetup() {
         const [lastname, setLastname] = useState(state.users.lastname)
         const [role, setRole] = useState(state.users.role)
         const [mail, setMail] = useState(state.users.mail)
-        let status = state.users.status
-        let permission1 = state.users.permission1
-        let permission2 = state.users.permission2
+        const [status, setStatus] = useState(state.users.status);
+        const [permission1, setPermission1] = useState(state.users.permission1);
+        const [permission2, setPermission2] = useState(state.users.permission2);
+
+        useEffect(()=>{
+            state.users.status = status
+        }, [status]);
+
+        useEffect(()=>{
+            state.users.permission1 = permission1
+        }, [permission1]);
+
+        useEffect(()=>{
+            state.users.permission2 = permission2
+        }, [permission2]);
         
 
         const id = state.users.id
@@ -24,7 +36,7 @@ export default function UserSetup() {
         const save = (e) => {
             e.preventDefault()
 
-            changeUser({id, name, lastname, mail, status, role, permission1, permission2}, state.users.id)
+            changeUser({id, name, lastname, mail, role}, state.users.id)
     
 
         }
@@ -47,9 +59,9 @@ export default function UserSetup() {
                     <div className="form-control user-setup--status-box">
                         <span>Status</span>
                         <button 
-                        className={`user--status ${state.users.status ? 'true' : 'false'}`}
-                        onClick={() => state.users.status = !state.users.status}>
-                            {state.users.status}
+                        className={`user--status ${status ? 'true' : 'false'}`}
+                        onClick={() => setStatus(!status)}>
+                            {status}
                         </button>
                         </div>
                     <form onSubmit={save}>
@@ -112,17 +124,17 @@ export default function UserSetup() {
                     <div className="user-setup--permision-box">
                         <span>Permission 1</span>
                         <button 
-                        className={`user--status ${state.users.permission1 ? 'true' : 'false'}`}
-                        onClick={() => state.users.permission1 = !state.users.permission1}>
-                            {state.users.permission1}
+                        className={`user--status ${permission1 ? 'true' : 'false'}`}
+                        onClick={() => setPermission1(!permission1)}>
+                            {permission1}
                         </button>
                     </div>
                     <div className="user-setup--permision-box">
                         <span>Permission 2</span>
                         <button 
                         className={`user--status ${permission2 ? 'true' : 'false'}`}
-                        onClick={() => state.users.permission2 = !state.users.permission2}>
-                            {state.users.permission2}
+                        onClick={() => setPermission2(!permission2)}>
+                            {permission2}
                         </button>
                     </div>
                     </div>
