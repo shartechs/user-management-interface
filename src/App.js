@@ -76,7 +76,7 @@ const deleteUser = (id) => {
             />
             <Table/>
           </Route>
-          <Route path="/user-setup">
+          <Route path="/user-setup/:id">
             <Header title="User Setup"/>
             <UserSetup/>
           </Route>
