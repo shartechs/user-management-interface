@@ -4,22 +4,9 @@ table {
 
 th {
   border-bottom-color: lightgray !important;
+}
 
-  span {
-    text-transform: uppercase;
-    position: relative;
-
-    &::after {
-      position: absolute;
-      top: 4px;
-      right: -30px;
-      background-color: white;
-      content: " ";
-      background-image: url("/assets/polygon.svg");
-      background-size: 12px 12px;
-      background-repeat: no-repeat;
-      height: 13px;
-      width: 13px;
-    }
-  }
+th:nth-child(1),
+th:nth-child(2) {
+  cursor: pointer;
 }
