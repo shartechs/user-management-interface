@@ -52,12 +52,11 @@ const deleteUser = (id) => {
 }
 
 //Save changes to user
-const changeUser = (user, id) => {
+const changeUser = (updatedUser, id) => {
 
-  const updatedUser = {...user}
   setUsers(
     users.map((user) => 
-    user.id === id ? {updatedUser} : user
+    user.id === id ? {...updatedUser} : user
 
     )
   )
