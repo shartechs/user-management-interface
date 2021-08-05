@@ -36,7 +36,7 @@ export default function UserSetup() {
         const save = (e) => {
             e.preventDefault()
 
-            changeUser({id, name, lastname, mail, role}, state.users.id)
+            changeUser({id, name, lastname, mail, role, status, permission1, permission2}, state.users.id)
     
 
         }

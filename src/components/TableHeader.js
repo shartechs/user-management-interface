@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons"
 
 export default function TableHeader({headers, onSorting}) {
     const [sortingField, setSortingField] = useState("")

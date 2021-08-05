@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './components/FontawesomeIcons'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss'
 import Header from './components/Header';
@@ -53,7 +54,7 @@ const deleteUser = (id) => {
 //Save changes to user
 const changeUser = (user, id) => {
 
-  const updatedUser = {id, ...user}
+  const updatedUser = {...user}
   setUsers(
     users.map((user) => 
     user.id === id ? {updatedUser} : user
