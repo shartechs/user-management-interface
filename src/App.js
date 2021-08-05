@@ -140,6 +140,16 @@ const sampleUsers = [
     "status": false,
     "permission1": false,
     "permission2": false
+  },
+  {
+    "id": 4,
+    "name": 'Samuel',
+    "lastname": 'Jackson',
+    "mail": 'samuel.jackson@testtask.com',
+    "role": 'user',
+    "status": true,
+    "permission1": false,
+    "permission2": false
   }
 ] 
 

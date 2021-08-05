@@ -48,9 +48,9 @@ export default function UserSetup() {
                     <div className="col-12 col-lg-4 user-setup--info">
                         <img src={userPicture} alt="" />
                         <div className="user-setup--info-box">
-                            <p>{state.users.name}{" "}</p>
-                            <p>{state.users.lastname}{" "}</p>
-                            <span>{state.users.mail}{" "}</span>
+                            <p>{name}{" "}</p>
+                            <p>{lastname}{" "}</p>
+                            <span>{mail}{" "}</span>
                         </div>
                     </div>
 
