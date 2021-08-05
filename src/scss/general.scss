@@ -28,8 +28,9 @@ select {
 
 button:focus,
 button:active {
-  outline: none;
-  box-shadow: none;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: inherit;
 }
 
 button:hover {
