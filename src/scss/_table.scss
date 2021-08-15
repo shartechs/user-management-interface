@@ -14,3 +14,8 @@ th:nth-child(1),
 th:nth-child(2) {
   cursor: pointer;
 }
+
+.table--pagination-container {
+  display: flex;
+  justify-content: space-between;
+}
