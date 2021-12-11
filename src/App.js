@@ -83,7 +83,7 @@ const changeUser = (updatedUser, id) => {
       <div className="main-content">
         <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/user-management-interface">
             <Header 
             title="Project Access" 
             button={<AddUserBtn/>}

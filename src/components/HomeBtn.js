@@ -7,7 +7,7 @@ export default function AddUserBtn() {
 
 
     return (
-        <Link to="/">
+        <Link to="/user-management-interface">
             <button className="btn btn-primary header--btn-add-user">
             <FontAwesomeIcon icon="home"/>
             </button>
