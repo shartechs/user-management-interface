@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import Pagination from 'react-bootstrap/Pagination'
 
-export default function TablePagination({total, itemsPerPage = 2, currentPage, onPageChange}) {
+export default function TablePagination({total, itemsPerPage, currentPage, onPageChange}) {
 
     const [totalPages, setTotalPages] = useState(0)
 
